@@ -1,0 +1,48 @@
+{
+  "name": "minha-aplicacao",
+  "version": "1.0.0",
+  "description": "Minha aplicação Electron",
+  "author": "Aldenir Kaizen",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.34.1"
+  },
+  "devDependencies": {
+    "electron": "^38.1.2",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.minha.aplicacao",
+    "extraResources": [
+      "contatos.json",
+      "contatosig.json",
+      "uploads/**",
+      "style.css"
+    ],
+    "productName": "Minha Aplicação",
+    "files": [
+      "**/*",
+      "!node_modules/*/{test,__tests__}/**",
+      "!dist"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
